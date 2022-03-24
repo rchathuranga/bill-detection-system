@@ -18,5 +18,13 @@ export class ApiserviceService {
     return this.http.post('${this.apiUrl}/signup ,data');
   }
 
+  //login
+  login(data:any):Observable<any>
+  {
+    console.log(data,'data###');
+    return this.http.post('${this.apiUrl}/login',data);
+    
+  }
+
 
 }
