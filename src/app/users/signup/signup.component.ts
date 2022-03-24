@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Service } from 'bonjour';
+import {ApiserviceService} from '../apiservice.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -8,7 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor(private:Service:ApiserviceService,private router:Router) { }
    errmsg:any;
    errmsgshow=false;
 
@@ -28,6 +31,21 @@ export class SignupComponent implements OnInit {
      {
        console.log(this.signupForm.value,'signupform###');
        this.errmsgshow=false;
+    
+        // call api signup
+       this.service.signup(this.signupForm.value).subscribe((res)=>{
+          console.log(res,'res##');
+          if(res.status==true)
+          {
+             this.router.navigate(['tutorial']);
+          }
+          else
+          {
+            this.errmsgshow = true;
+            this.errmsg = res.msg;
+          }
+        });
+       
      }
      else
      {

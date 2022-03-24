@@ -13,6 +13,8 @@ export class ApiserviceService {
 
   signup(data:any):Observable<any>
   {
+    console.log(data,'data##');
+    
     return this.http.post('${this.apiUrl}/signup ,data');
   }
 
