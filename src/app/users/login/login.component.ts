@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import {ApiserviceService} from '../apiservice.service';
 
 @Component({
   selector: 'app-login',
@@ -8,7 +9,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:ApiserviceService) { }
   errmsg:any;
   errmsgshow=false; 
   loginForm = new FormGroup({
@@ -24,6 +25,17 @@ export class LoginComponent implements OnInit {
     if(this.loginForm.valid)
     {
       console.log(this.loginForm.value,'loginvalue##');
+      this.service.login(this.loginForm.value).subscribe((res)=>{
+        if(res.status==true)
+        {
+
+        }
+        else
+        {
+
+        }
+        
+      });
       
     }else
     {
