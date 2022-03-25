@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
+  service: any;
 
   constructor(private:Service:ApiserviceService,private router:Router) { }
    errmsg:any;
@@ -33,7 +34,7 @@ export class SignupComponent implements OnInit {
        this.errmsgshow=false;
     
         // call api signup
-       this.service.signup(this.signupForm.value).subscribe((res)=>{
+       this.service.signup(this.signupForm.value).subscribe((res: { status: boolean; msg: any; })=>{
           console.log(res,'res##');
           if(res.status==true)
           {

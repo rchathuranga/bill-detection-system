@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import {ApiserviceService} from '../apiservice.service';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +10,7 @@ import {ApiserviceService} from '../apiservice.service';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private service:ApiserviceService) { }
+  constructor(private service:ApiserviceService,private router:Router) { }
   errmsg:any;
   errmsgshow=false; 
   loginForm = new FormGroup({
@@ -28,13 +29,19 @@ export class LoginComponent implements OnInit {
       this.service.login(this.loginForm.value).subscribe((res)=>{
         if(res.status==true)
         {
-
+            console.log(res,'resss');
+            // store data in localStorage
+           localStorage.clear();
+           localStorage.setItem('token',res.token);
+           localStorage.setItem('username',res.result.name);
+           this.router.navigate(['tutorial']);
         }
         else
         {
-
+           this.errmsgshow=true;
+           this.errmsg = res.msg;
         }
-        
+
       });
       
     }else
