@@ -1,0 +1,171 @@
+.outer-wrapper {
+  width: 80%;
+  height: 400px;
+  margin: 10px auto;
+  border-radius: 10px;
+  box-shadow: 0 0 12px 8px #6e6e6e24;
+}
+
+.uploader-wrapper {
+  display: flex;
+}
+
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 25px 0 0 0;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+.container span,image {
+  width: 100%;
+  text-align: center;
+  color: #a0a1a2;
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.progress {
+  margin-bottom: 30px;
+}
+
+.fileupload {
+  width: 100%;
+  height:  200px;
+  top: 0;
+  bottom: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-bottom: 25px;
+  background-position: center 28px;
+  display: flex;
+
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.ddinfo {
+  display: block;
+  text-align: center;
+  color: #a0a1a2;
+}
+
+.image-list-wrapper{
+  display: grid;
+  margin: 10px;
+  grid-template-columns: 2fr 2fr 2fr 2fr;
+  flex-direction: column;
+  grid-gap: 10px;
+  align-items: start;
+  justify-items: center;
+}
+.image-list {
+  display: grid;
+  height: max-content;
+  background: #C2DFFC;
+  border: 1px solid;
+  border-radius: 3px;
+  /*padding: 10px 10px 10px 15px;*/
+}
+/*
+.image-list p {
+  line-height: normal;
+  padding: 0;
+  margin: 0 0 0 14px;
+  display: inline-block;
+  position: relative;
+  top: -2px;
+  color: #150938;
+  font-size: 14px;
+}*/
+
+.message {
+  text-align: center;
+  color: #C2DFFC;
+}
+
+.remove {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.profile {
+  /*width: 200px;*/
+  overflow: hidden;
+  border-radius: 4px;
+  display: inline-block;
+}
+
+.profile img {
+  width: 100%;
+}
+
+.remove img {
+  width: 15px;
+  position: relative;
+  top: -2px;
+}
+
+.fileUploadWrapper .card-body {
+  max-height: 330px;
+  overflow: hidden;
+  overflow-y: auto;
+}
+
+.img-wrapper {
+  position: relative;
+  width: 100%;
+
+  display: flex;
+  justify-content: center;
+}
+
+
+.footer {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer > div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.footer p{
+  text-align: center;
+}
+
+button {
+  all: unset;
+  cursor: pointer;
+}
+
+button:focus {
+  outline: #1976d2 5px auto;
+}
+
+.proceed-btn-wrapper > button {
+  background: #6760fa;
+  width: 170px;
+  height: 48px;
+  border: none;
+  border-radius: 3px;
+  font-family: Quicksand,sans-serif;
+  color: #fff;
+}
+
+
+

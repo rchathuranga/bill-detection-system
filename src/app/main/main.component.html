@@ -1,0 +1,52 @@
+<div class="outer-wrapper" style="height: 200px;">
+  <div class="container fileUploadWrapper">
+    <form [formGroup]="form">
+      <div class="row">
+        <!-- Progress Bar -->
+
+        <div class="col-md-12">
+          <div
+            class="fileupload"
+            appDragDropFileUpload
+            (click)="fileField.click()"
+            (fileDropped)="upload($event)"
+          >
+
+            <span class="ddinfo">Choose a file or drag here</span>
+            <div class="img-wrapper">
+              <img width="120px" class="image-wrapper" src="https://www.pngplay.com/wp-content/uploads/8/Upload-Icon-Logo-PNG-Photos.png">
+            </div>
+            <input accept=".png,.jpg"
+                   type="file"
+                   name="avatars"
+                   #fileField
+                   (change)="upload($any($event).target.files)"
+                   hidden
+                   multiple
+            />
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="outer-wrapper" style="padding: 20px; height: max-content; max-height: 550px; overflow: auto">
+
+  <div class="image-list-wrapper">
+    <div class="image-list" *ngFor="let file of fileArr; let i = index">
+      <div class="profile">
+<!--        <div style="width: 40px; height: 40px; background: #1976d2"></div>-->
+        <img [src]="sanitize(file['url'])" alt="" width="300px"/>
+      </div>
+      <p>{{ file.item.name }}</p>
+    </div>
+    <p class="message">{{ msg }}</p>
+  </div>
+  <div class="footer">
+    <p *ngIf="fileArr.length===0">Uploaded Images will Display here</p>
+    <div *ngIf="fileArr.length!==0" class="proceed-btn-wrapper btn">
+    <button class="my-btn" routerLink="result">Proceed Detection</button>
+    </div>
+  </div>
+</div>
