@@ -26,5 +26,17 @@ export class ApiserviceService {
     
   }
 
+  // tutorial
+  tutorial():Observable<any>
+  {
+      return this.http.get('${this.apiurl}/tutorial');
+  }
+
+  //gettoken
+  getToken()
+  {
+    return localStorage.getItem('token');
+  }
+
 
 }

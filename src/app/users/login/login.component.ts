@@ -34,7 +34,11 @@ export class LoginComponent implements OnInit {
            localStorage.clear();
            localStorage.setItem('token',res.token);
            localStorage.setItem('username',res.result.name);
-           this.router.navigate(['tutorial']);
+           this.router.navigate(['tutorial']),then(()=>{
+            window.location.reload();
+            
+           });
+           
         }
         else
         {
